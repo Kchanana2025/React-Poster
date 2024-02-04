@@ -1,10 +1,24 @@
 import PostList from './components/PostList';
+import MainHeader from './components/MainHeader';
+import { useState } from 'react';
+
 //Post naam ka function import kr lia hmnne ./components/Post se
 function App() {
+  const [modalIsVisible, setModalISVisible] = useState(false);
+  function hideModalHandler() {
+    setModalISVisible(false);
+  }
+  function showModalHandler() {
+    setModalISVisible(true);
+  }
   return (
-    <main>
-      <PostList author="Macimillian" body="React.js is awesome" />
-    </main>
+    <>
+      <MainHeader onCreatePost={showModalHandler} />
+      <main>
+        <PostList isPosting={modalIsVisible}
+          onStopPosting={hideModalHandler} />
+      </main>
+    </>
   );
 }
 //ek rule hota hai ki ki there should be a single element jisne andr chahe jitne bhi sibling element ho jo jsx code return kr rhe ho

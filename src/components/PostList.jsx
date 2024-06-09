@@ -9,10 +9,17 @@ function PostList({ isPosting, onStopPosting }) {
     const [posts, setPosts] = useState([]);
 
     function addPostHandler(postData) {
-        //setPosts([postData, ...posts]);
-        //this is not an ideal code 
+        //here we are sending put request to our server
+        // fetch('http://localhost:8080/posts', {
+        //     method: 'POST',
+        //     body: JSON.stringify(postData),
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // });
         // there is a rule if u update a state and that state is dependent on previous state value
-        //we should pass a function to setPosts which will be automatically be called by react..see at 2:16
+        //we should pass a function to setPosts which will be automatically be called by react
+        //whenever you will call state change function(setPosts here)
         setPosts((existingPost) => [postData, ...existingPost]);
 
 
@@ -30,6 +37,7 @@ function PostList({ isPosting, onStopPosting }) {
             {posts.length > 0 && (
                 <ul className={classes.posts}>
                     {posts.map((post) => (<Post key={post.body} author={post.author} body={post.body} />))}
+                    {/* we are mapping each post element inkto jsx element so that we can pass it to out post component */}
                 </ul>
             )}
             {posts.length === 0 && (

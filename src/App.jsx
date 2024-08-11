@@ -28,13 +28,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PostList from "./components/PostList";
 import MainHeader from "./components/MainHeader";
-import Chatbot from "./components/ChatBot";
+// import Chatbot from "./components/ChatBot";
 import { useState } from "react";
 import PostDetails from "./components/PostDetails";
 
 function App() {
   const [modalIsVisible, setModalISVisible] = useState(false);
-  const [chatbotIsVisible, setChatbotIsVisible] = useState(false);
+  // const [chatbotIsVisible, setChatbotIsVisible] = useState(false);
 
   function hideModalHandler() {
     setModalISVisible(false);
@@ -44,9 +44,9 @@ function App() {
     setModalISVisible(true);
   }
 
-  function toggleChatbotHandler() {
-    setChatbotIsVisible((prevState) => !prevState);
-  }
+  // function toggleChatbotHandler() {
+  //   setChatbotIsVisible((prevState) => !prevState);
+  // }
 
   // return (
   //   <>
@@ -74,7 +74,7 @@ function App() {
                     isPosting={modalIsVisible}
                     onStopPosting={hideModalHandler}
                   />
-                  {chatbotIsVisible && (
+                  {/* {chatbotIsVisible && (
                     <Chatbot onClose={toggleChatbotHandler} />
                   )}
                   <button
@@ -82,7 +82,7 @@ function App() {
                     onClick={toggleChatbotHandler}
                   >
                     Chat
-                  </button>
+                  </button> */}
                 </main>
               </>
             }
